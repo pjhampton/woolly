@@ -41,6 +41,7 @@ end
   - [License](http://github.com/pjhampton/Woolly/blob/master/info/LICENSE.md)
   - [Release](http://github.com/pjhampton/Woolly/blob/master/info/RELEASE.md)
   - [Roadmap](http://github.com/pjhampton/Woolly/blob/master/info/ROADMAP.md)
+  - [Thanks](http://github.com/pjhampton/Woolly/blob/master/info/THANKS.md)
 
 ## Copyright & License
 
