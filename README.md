@@ -29,7 +29,7 @@ def application do
 end
 ```
 
-...and don't forget to run `mix deps.get, compile` from the terminal to fetch and compile your workspace dependencies.
+...and don't forget to run `mix do deps.get, compile` from the terminal to fetch and compile your workspace dependencies.
 
 ## Important Information
 
