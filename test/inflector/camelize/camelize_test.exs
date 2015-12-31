@@ -1,4 +1,4 @@
-defmodule Woolly.Inflector.Camelize.CamelizeTest do
+defmodule Woolly.Inflector.CamelizeTest do
   use ExUnit.Case
 
 end

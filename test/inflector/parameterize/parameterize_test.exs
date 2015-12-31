@@ -1,3 +1,4 @@
-defmodule Woolly.Inflector.Parameterize.ParameterizeTest do
+defmodule Woolly.Inflector.ParameterizeTest do
   use ExUnit.Case
+
 end

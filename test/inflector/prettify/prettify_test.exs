@@ -1,4 +1,4 @@
-defmodule Woolly.Inflector.Prettify.PrettifyTest do
+defmodule Woolly.Inflector.PrettifyTest do
   use ExUnit.Case
 
 end

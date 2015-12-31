@@ -1,4 +1,4 @@
-defmodule Woolly.Inflector.Pluralize.PluralizeTest do
+defmodule Woolly.Inflector.PluralizeTest do
   use ExUnit.Case
 
 end

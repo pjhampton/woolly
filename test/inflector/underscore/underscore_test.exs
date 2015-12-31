@@ -1,4 +1,4 @@
-defmodule Woolly.Inflector.Underscore.UnderscoreTest do
+defmodule Woolly.Inflector.UnderscoreTest do
   use ExUnit.Case
 
 end
