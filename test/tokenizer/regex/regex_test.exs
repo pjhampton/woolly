@@ -1,4 +1,4 @@
-defmodule Woolly.Tokenizer.Regex.RegexTest do
+defmodule Woolly.Tokenizer.RegexTest do
   use ExUnit.Case
 
 end
