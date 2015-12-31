@@ -1,4 +1,4 @@
-defmodule Woolly.Stemmer.Snowball.SnowballTest do
+defmodule Woolly.Stemmer.SnowballTest do
   use ExUnit.Case
 
 end

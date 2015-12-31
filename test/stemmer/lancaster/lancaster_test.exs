@@ -1,4 +1,4 @@
-defmodule Woolly.Stemmer.Lancaster.LancasterTest do
+defmodule Woolly.Stemmer.LancasterTest do
   use ExUnit.Case
 
 end

@@ -1,4 +1,4 @@
-defmodule Woolly.Stemmer.Restemmer.RestemmerTest do
+defmodule Woolly.Stemmer.RestemmerTest do
   use ExUnit.Case
 
 end
