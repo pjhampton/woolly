@@ -1,4 +1,4 @@
 defmodule Woolly.Tokenizer.RegexTest do
-  use ExUnit.Case
+  use ExUnit.Case, async: true
 
 end
