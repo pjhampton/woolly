@@ -1,10 +1,10 @@
 defmodule Woolly.Inflector.Camelize do
   @moduledoc false
 
-  def camelize(word, option\\:upper) do
+  def camelize(word, option \\ :upper) do
     case Regex.split(~r/(?:^|[-_])|(?=[A-Z])/, to_string(word)) do
-      words -> words |> camelize_list(option)
-                     |> Enum.join
+      word -> word |> camelize_list(option)
+                   |> Enum.join
     end
   end
 
