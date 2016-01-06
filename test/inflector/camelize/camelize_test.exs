@@ -4,7 +4,7 @@ defmodule Woolly.Inflector.CamelizeTest do
   import Woolly.Inflector
 
   test :camelize_upper do
-    assert "AlphaBetaCharlie" == camelize("Alpha Beta Charlie", :upper)
+    assert "AlphaBetaCharlie" == camelize("Alpha-Beta-Charlie", :upper)
     assert "ElixirLang" == camelize("elixir lang")
     assert "MyFairLady" == camelize("My Fair Lady")
     assert "TextMining" == camelize("Text mining")
