@@ -1,16 +1,10 @@
 defmodule Woolly.Inflector.Ordinalize do
   @moduledoc false
 
-  def ordinalize(number) do
+  def ordinalize(number) when is_number(number) do
     cond do
-      number == 11 ->
-        "11th"
-      number == 12 ->
-        "12th"
-      number == 13 ->
-        "13th"
-      number == 14 ->
-        "14th"
+      number in [11, 12, 13, 14] ->
+        Integer.to_string(number) <> "th"
       rem(number, 10) == 1 ->
         Integer.to_string(number) <> "st"
       rem(number, 10) == 2 ->
