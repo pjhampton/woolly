@@ -29,7 +29,7 @@ defmodule Woolly.Inflector.OrdinalizeTest do
     assert "33rd" == ordinalize(33)
     assert "34th" == ordinalize(34)
     assert "35th" == ordinalize(35)
-    assert "41st" == ordinalize(40)
+    assert "41st" == ordinalize(41)
     assert "43rd" == ordinalize(43)
     assert "74th" == ordinalize(74)
     assert "81st" == ordinalize(81)
