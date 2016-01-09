@@ -6,6 +6,8 @@ defmodule Woolly.Inflector do
 
   defdelegate [parameterize(input), parameterize(input, connector)], to: Woolly.Inflector.Parameterize
 
+  defdelegate [pluralize(word), singularize(word)], to: Woolly.Inflector.Pluralize
+
   defdelegate [underscore(word)], to: Woolly.Inflector.Underscore
 
 end

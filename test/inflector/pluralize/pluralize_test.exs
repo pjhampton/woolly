@@ -13,14 +13,14 @@ defmodule Woolly.Inflector.PluralizeTest do
     assert "buses" == pluralize("bus")
     assert "databases" == pluralize("database")
     assert "shoes" == pluralize("shoe")
-    assert "viruses" == pluralize("virus")
+    assert "viri" == pluralize("virus")
     assert "geese" == pluralize("goose")
 
     assert "criteria" == pluralize("criterion")
     assert "radii" == pluralize("radius")
     assert "classes" == pluralize("class")
     assert "women" == pluralize("woman")
-    assert "seamen" == pluralize("seamen")
+    assert "seamen" == pluralize("seaman")
 
     assert "men" == pluralize("men")
     assert "women" == pluralize("women")
@@ -44,12 +44,12 @@ defmodule Woolly.Inflector.PluralizeTest do
     assert "bus" == singularize("buses")
     assert "database" == singularize("databases")
     assert "shoe" == singularize("shoe")
-    assert "virus" == singularize("viruses")
+    assert "virus" == singularize("viri")
     assert "goose" == singularize("geese")
 
-    assert "criteria" == singularize("criterion")
-    assert "radius" == singularize("raddi")
-    assert "class" == singluarize("classes")
+    assert "criterion" == singularize("criteria")
+    assert "radius" == singularize("radii")
+    assert "class" == singularize("classes")
     assert "woman" == singularize("women")
     assert "seaman" == singularize("seamen")
 
