@@ -16,5 +16,4 @@ defmodule Woolly.Inflector.Underscore do
     |> String.replace(~r/\s/, "_")
     |> String.downcase()
   end
-
 end

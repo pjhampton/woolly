@@ -15,5 +15,4 @@ defmodule Woolly.Inflector.Ordinalize do
         Integer.to_string(number) <> "th"
     end
   end
-  
 end
