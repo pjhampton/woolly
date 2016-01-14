@@ -48,7 +48,7 @@ defmodule Woolly.Utils.Stopwords do
     - `lang` - (atom) the language iso 639-1 code.
   """
   def list_stopwords(lang \\ :en) do
-    fetch_stopwords()
+    fetch_stopwords(lang)
   end
 
   @doc ~S"""
