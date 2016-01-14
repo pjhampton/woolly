@@ -1,0 +1,7 @@
+sudo: false
+language: elixir
+elixir:
+  - 1.2.0
+env: MIX_ENV=Test
+otp_release:
+  - 18.0
