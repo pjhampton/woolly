@@ -41,7 +41,7 @@ defmodule Woolly.Stemmer.Restemmer do
     - minimum (Integer) - The minimum number of graphemes to work.
   """
   def stem(word, pattern, min) when is_binary(word) and is_number(min) do
-    if String.length(word) >= minimum do
+    if String.length(word) >= min do
       Regex.replace(pattern, word, "") 
     else
       word
