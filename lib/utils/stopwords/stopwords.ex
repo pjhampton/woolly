@@ -58,7 +58,7 @@ defmodule Woolly.Utils.Stopwords do
 
     - `lang` - (atom) the language iso 639-1 code.
   """
-  defp fetch_stopwords(lang \\ :en) do
+  defp fetch_stopwords(lang) do
     folder_path = "resources/corpora/stopwords/"
     file_path = "stopwords." <> Atom.to_string(lang)
     path = folder_path <> file_path
