@@ -60,7 +60,7 @@ defmodule Woolly.Utils.Stopwords do
   """
   defp fetch_stopwords(lang) do
     folder_path = "resources/corpora/stopwords/"
-    file_path = "stopwords." <> Atom.to_string(lang)
+    file_path = Atom.to_string(lang) <> ".stopwords"
     path = folder_path <> file_path
     {:ok, stopwords} = File.read(path)
     Regex.split(~r/\n/, stopwords)
