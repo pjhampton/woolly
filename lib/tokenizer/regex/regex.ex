@@ -23,6 +23,7 @@ defmodule Woolly.Tokenizer.Regex do
   def tokenize(sent) when is_binary(sent) do
     sent = Regex.replace(~r{\.}, sent, " .")
     sent = Regex.replace(~r{\,}, sent, " ,")
+    sent = Regex.replace(~r{\:}, sent, " :")
     sent = Regex.replace(~r{\;}, sent, " ;")
     sent = Regex.replace(~r{\?}, sent, " ?")
     sent = Regex.replace(~r{\!}, sent, " !")
