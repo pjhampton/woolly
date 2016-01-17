@@ -26,7 +26,7 @@ defmodule Woolly.Tokenizer.Regex do
     sent = Regex.replace(~r{\:}, sent, " :")
     sent = Regex.replace(~r{\;}, sent, " ;")
     sent = Regex.replace(~r{\?}, sent, " ?")
-    sent = Regex.replace(~r{\!}, sent, " !")
+    Regex.replace(~r{\!}, sent, " !")
     |> String.split()
   end
 
@@ -36,7 +36,7 @@ defmodule Woolly.Tokenizer.Regex do
   end
 
   def blankline_tokenize(sent) when is_binary(sent) do
-    sent = Regex.split(~r{\n}, sent)
+    Regex.split(~r{\n}, sent)
     |> Enum.reject(fn(x) -> x == "" end) 
   end
 end
