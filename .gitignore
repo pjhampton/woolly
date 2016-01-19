@@ -3,3 +3,9 @@
 /deps
 erl_crash.dump
 *.ez
+/doc
+/Docs-v*.zip
+/ebin
+/.eunit
+/Precompiled-v*.zip
+/.release
