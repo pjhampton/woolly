@@ -9,7 +9,7 @@ Woolly is [available in Hex](https://hex.pm/), install it by adding it to your p
 
 ```elixir
 def deps do
-  [{:woolly, "~> 0.0.1"}]
+  [{:woolly, "~> 0.1.0"}]
 end
 ```
 
@@ -33,19 +33,16 @@ end
 
 ## Important Information
 
-  - [Changelog](http://github.com/pjhampton/Woolly/blob/master/info/CHANGELOG.md)
   - [Code of Conduct](http://github.com/pjhampton/Woolly/blob/master/info/CODE_OF_CONDUCT.md)
   - [Contributing](http://github.com/pjhampton/Woolly/blob/master/info/CONTRIBUTING.md)
   - ~~Documentation~~
   - [FAQs](http://github.com/pjhampton/Woolly/blob/master/info/FAQs.md)
   - [License](http://github.com/pjhampton/Woolly/blob/master/info/LICENSE.md)
-  - [Release](http://github.com/pjhampton/Woolly/blob/master/info/RELEASE.md)
-  - [Roadmap](http://github.com/pjhampton/Woolly/blob/master/info/ROADMAP.md)
   - [Thanks](http://github.com/pjhampton/Woolly/blob/master/info/THANKS.md)
 
 ## Copyright & License
 
-Copyright (c) 2016 PJ Hampton.
+Copyright (c) 2016, PJ Hampton.
 
 Woolly is released under the liberal <a href="http://pjhampton.mit-license.org/" target="_blank">MIT License</a>.
 
