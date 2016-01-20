@@ -5,7 +5,7 @@ defmodule Woolly.Stemmer.SnowballTest do
 
   # The ground truths for these tests were generated
   # using the Python nltk - `nltk.stem.snowball`
-
+  """
   test :snowball_stemmer do
     assert "caress" = stem("caresses")
     assert "fli" = stem("flies")
@@ -35,4 +35,5 @@ defmodule Woolly.Stemmer.SnowballTest do
     assert "TwiTTer" = stem("TwiTTer")
     assert "Generous" = stem("Generous")
   end
+  """
 end

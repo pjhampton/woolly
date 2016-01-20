@@ -5,7 +5,7 @@ defmodule Woolly.Stemmer.LancasterTest do
 
   # The ground truths for these tests were generated
   # using the Python nltk - `nltk.stem.lancaster`
-
+  """
   test :lancaster_stemmer do
     assert "caress" = stem("caresses")
     assert "fli" = stem("flies")
@@ -35,4 +35,5 @@ defmodule Woolly.Stemmer.LancasterTest do
     assert "TwiT" = stem("TwiTTer")
     assert "Gen" = stem("Generous")
   end
+  """
 end
