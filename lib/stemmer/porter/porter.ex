@@ -56,7 +56,7 @@ defmodule Woolly.Stemmer.Porter do
 
   """
   def stem(word) do
-    # word |> step1ab |> step1c |> step2 |> step3 |> step4 |> step5
+    word |> step1ab |> step1c
   end
 
   defp _cons(word, i) do
@@ -66,7 +66,7 @@ defmodule Woolly.Stemmer.Porter do
   end
 
   def step1ab(word) do
-    cond do
+    preprocess = cond do
       String.at(word, -1) == "s" ->
         word |> strip1
       String.ends_with?(word, "ied") ->
@@ -80,9 +80,34 @@ defmodule Woolly.Stemmer.Porter do
       true ->
         word
     end
+
+    if String.ends_with?(preprocess, "at") do
+      preprocess = preprocess <> "e" 
+    else
+      preprocess
+    end
+
+    if String.ends_with?(preprocess, "bl") do
+      preprocess = preprocess <> "e" 
+    else
+      preprocess
+    end
+
+    if String.ends_with?(preprocess, "iz") do
+      preprocess = preprocess <> "e" 
+    else
+      preprocess
+    end
+
   end
 
-  defp step1c(word) do
+  def step1c(word) do
+    if String.ends_with?(word, "y") and (String.length(word) > 2) do
+      word = String.slice(word, 0..String.length(word)-2)
+      word <> "i"
+    else
+      word
+    end
   end
 
   defp step2(word) do
@@ -110,8 +135,8 @@ defmodule Woolly.Stemmer.Porter do
         else
           word |> String.slice(0..String.length(word)-3)
         end
-      # 2nd last letter != s
-      # word |> String.slice(0..String.length(word)-2)
+      String.at(word, -2) != "s" ->
+        word |> String.slice(0..String.length(word)-2)
       true -> word
     end
   end
@@ -125,15 +150,24 @@ defmodule Woolly.Stemmer.Porter do
   end
 
   def strip3(word) do
-    word |> String.slice(0..String.length(word)-2)
+    if String.length(word) > 4 do
+      word |> String.slice(0..String.length(word)-2)
+    else
+      word
+    end
   end
 
   def strip4(word) do
-    word |> String.slice(0..String.length(word)-3)
+    if String.length(word) > 4 do
+      word |> String.slice(0..String.length(word)-3)
+    else
+      word
+    end
   end
 
   def strip5(word) do
     word |> String.slice(0..String.length(word)-4)
   end
+
 
 end
