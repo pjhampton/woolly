@@ -11,7 +11,8 @@ defmodule Woolly.Mixfile do
      build_embedded: Mix.env == :prod,
      start_permanent: Mix.env == :prod,
      docs: docs,
-     deps: deps]
+     deps: deps,
+     package: package]
   end
 
   def application do
@@ -19,21 +20,32 @@ defmodule Woolly.Mixfile do
   end
 
   defp deps do
-    [{:earmark, "~> 0.1", only: :dev},
-     {:ex_doc, "~> 0.11", only: :dev}]
+    [{:earmark, "~> 0.1", only: :docs},
+     {:ex_doc, "~> 0.11", only: :docs}]
   end
 
   defp docs do
-    [extras: [
-      "info/CONTRIBUTING.md",
-      "info/FAQs.md",
-      "info/LICENSE.md",
-      ],
-      homepage_url: "http://github.com/pjhampton/woolly",
-      source_url: "http://github.com/pjhampton/woolly",
+    [
       description: """
-        Woolly is a text mining and natural language processing
+        Woolly is a text mining and natural language
         toolkit for the Elixir programming language.
-      """]
+      """,
+      extras: [
+        "info/CONTRIBUTING.md",
+        "info/FAQs.md",
+        "info/LICENSE.md",
+      ],
+      homepage_url: "http://github.com/pjhampton/Woolly",
+      source_url: "http://github.com/pjhampton/Woolly",
+    ]
+  end
+
+  defp package do
+    [
+      maintainers: ["PJ Hampton"],
+      licenses: ["MIT"],
+      links: %{github: "https://github.com/pjhampton/Woolly"},
+      files: ~w( lib resources test mix.exs README.md )
+    ] 
   end
 end
