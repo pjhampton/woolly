@@ -36,6 +36,7 @@ defmodule Woolly.Utils.Stopwords do
   """
   def remove_stopwords(sent, lang \\ :en) do
     stopwords = fetch_stopwords(lang)
+    stopwords = stopwords ++ Enum.map(stopwords, fn(x) -> String.capitalize(x) end)
     sent
     |> Enum.reject(fn(x) -> x in stopwords end)
   end
@@ -51,13 +52,6 @@ defmodule Woolly.Utils.Stopwords do
     fetch_stopwords(lang)
   end
 
-  @doc ~S"""
-  Fetches the list of stop words from the corpora.
-
-  # Parameters
-
-    - `lang` - (atom) the language iso 639-1 code.
-  """
   defp fetch_stopwords(lang) do
     folder_path = "resources/corpora/stopwords/"
     file_path = Atom.to_string(lang) <> ".stopwords"
