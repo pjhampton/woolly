@@ -17,10 +17,8 @@ defmodule Woolly.Utils.Stopwords do
 
   The public functions include:
 
-  `remove_stopwords/1`
-  `remove_stopwords/2`
-  `list_stopwords/1`
-  `list_stopwords/2`
+  - `remove_stopwords/2`
+  - `list_stopwords/1`
 
   If no language is selected as a parameter, then
   the Woolly.Utils (Utilities) will return english.
