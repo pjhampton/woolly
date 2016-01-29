@@ -9,7 +9,7 @@ defmodule Woolly.Stemmer.PorterTest do
   test :porter_stemmer do
     assert "caress" = stem("caresses")
     assert "fli" = stem("flies")
-    assert "die" = stem("dies")
+    assert "di" = stem("dies")
     assert "mule" = stem("mules")
     assert "deni" = stem("denied")
     assert "agre" = stem("agreed")

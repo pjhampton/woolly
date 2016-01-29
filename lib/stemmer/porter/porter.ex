@@ -46,8 +46,10 @@ defmodule Woolly.Stemmer.Porter do
     word
     |> reverse
     |> step1
+    |> step2
+    |> step3
     |> reverse
-    # |> step2 |> step3 |> step4 |> step5
+    # |> step4 |> step5
   end
 
   def stem(word), do: word
@@ -67,8 +69,6 @@ defmodule Woolly.Stemmer.Porter do
   def step1a("s" <> stem),      do: stem
   def step1a(word),             do: word
 
-  # Step1b ~ incomplete
-
   def step1b(word = "dee" <> stem) do
     case measure(word) do
       m when m > 0 ->
@@ -80,7 +80,7 @@ defmodule Woolly.Stemmer.Porter do
   
   def step1b(word = "de" <> stem) do
     case has_vowel(stem) do
-      true  -> false #step1b2(stem) # not implemented
+      true  -> step1b2(stem)
       false -> word
     end
   end
@@ -94,16 +94,13 @@ defmodule Woolly.Stemmer.Porter do
 
   def step1b(word), do: word
 
+  # step1b2 not complete
+
   def step1b2("ta" <> stem), do: "eta" <> stem
   def step1b2("lb" <> stem), do: "elb" <> stem
   def step1b2("zi" <> stem), do: "ezi" <> stem
   
   def step1b2(stem), do: stem # temp func
-
-
-  #####
-  ##### Step1c
-  #####
 
   def step1c(word = "y" <> stem) do
     case has_vowel(stem) do
@@ -113,10 +110,44 @@ defmodule Woolly.Stemmer.Porter do
   end
 
   def step1c(word), do: word
-
   def step1(word), do: word |> step1a |> step1b |>step1c
 
+  ## Step 2
+  def step2("lanoita" <> stem), do "eta" <> stem
+  def step2("lanoit" <> stem), do: "noit" <> stem
+  def step2("icne" <> stem), do: "ecne" <> stem
+  def step2("icna" <> stem), do: "ecna" <> stem
+  def step2("rezi" <> stem), do: "ezi" <> stem
+  def step2("ilb" <> stem), do: "elb" <> stem
+  def step2("illa" <> stem), do: "la" <> stem
+  def step2("ltne" <> stem), do: "tne" <> stem
+  def step2("ile" <> stem), do: "e" <> stem
+  def step2("ilsuo" <> stem), do: "suo" <> stem
+  def step2("notiazi" <> stem), do: "ezi" <> stem
+  def step2("noita" <> stem), do: "eta" <> stem
+  def step2("rota" <> stem), do: "eta" <> stem
+  def step2("smila" <> stem), do: "la" <> stem
+  def step2("ssenevi" <> stem), do: "evi" <> stem
+  def step2("ssenluf" <> stem), do: "luf" <> stem
+  def step2("itila" <> stem), do: "la" <> stem
+  def step2("itivi" <> stem), do: "evi" <> stem
+  def step2("itilib" <> stem), do: "elb" <> stem
+  def step2("igol" <> stem), do: "gol" <> stem
+  def step2(word), do: word
   
+  
+  ####
+  #### Step 3
+  ####
+  #### etaci -> ci
+  #### evita -> ""
+  #### ezila -> la
+  #### itici -> ci
+  #### laci -> ci
+  #### luf -> ""
+  #### ssen -> ""
+
+  def step3(word), do: word
 
   ##################################################
   ##################################################
@@ -134,6 +165,7 @@ defmodule Woolly.Stemmer.Porter do
     token |> String.reverse
   end
 
+  
   def is_vowel(letter, y_is_vowel \\ false) do
     case letter do
       "a"                 -> true
@@ -178,7 +210,7 @@ defmodule Woolly.Stemmer.Porter do
 
     case is_vowel(head, false) do
       true -> found_vowel(tail, m)
-      false -> found_consonant(tail, m + 1) # not implemented
+      false -> found_consonant(tail, m + 1)
     end
   end
 
@@ -220,7 +252,7 @@ defmodule Woolly.Stemmer.Porter do
     end
   end
 
-
-
+  def ends_with(_, ""), do: false
+  def ends_with(l, stem), do: l == String.first(stem)
 
 end
