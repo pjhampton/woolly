@@ -69,8 +69,6 @@ defmodule Woolly.Stemmer.Porter do
   def step1a("s" <> stem),      do: stem
   def step1a(word),             do: word
 
-  # Step1b ~ incomplete
-
   def step1b(word = "dee" <> stem) do
     case measure(word) do
       m when m > 0 ->
@@ -96,16 +94,13 @@ defmodule Woolly.Stemmer.Porter do
 
   def step1b(word), do: word
 
+  # step1b2 not complete
+
   def step1b2("ta" <> stem), do: "eta" <> stem
   def step1b2("lb" <> stem), do: "elb" <> stem
   def step1b2("zi" <> stem), do: "ezi" <> stem
   
   def step1b2(stem), do: stem # temp func
-
-
-  #####
-  ##### Step1c
-  #####
 
   def step1c(word = "y" <> stem) do
     case has_vowel(stem) do
@@ -115,34 +110,31 @@ defmodule Woolly.Stemmer.Porter do
   end
 
   def step1c(word), do: word
-
   def step1(word), do: word |> step1a |> step1b |>step1c
 
-  ####
-  #### Step2
-  ####
-  #### icna -> ecna
-  #### rezi -> ezi
-  #### ilb -> elb
-  #### illa -> la
-  #### iltne -> tne
-  #### ile -> e
-  #### ilsuo -> suo
-  #### noitazi -> ezi
-  #### noita -> eta
-  #### rota ->. eta
-  #### msila -> la
-  #### ssenevi -> evi
-  #### ssenluf -> luf
-  #### itila -> la
-  #### itivi -> evi
-  #### itilib -> elb
-  #### igol -> gol
-
+  ## Step 2
   def step2("lanoita" <> stem), do "eta" <> stem
   def step2("lanoit" <> stem), do: "noit" <> stem
   def step2("icne" <> stem), do: "ecne" <> stem
+  def step2("icna" <> stem), do: "ecna" <> stem
+  def step2("rezi" <> stem), do: "ezi" <> stem
+  def step2("ilb" <> stem), do: "elb" <> stem
+  def step2("illa" <> stem), do: "la" <> stem
+  def step2("ltne" <> stem), do: "tne" <> stem
+  def step2("ile" <> stem), do: "e" <> stem
+  def step2("ilsuo" <> stem), do: "suo" <> stem
+  def step2("notiazi" <> stem), do: "ezi" <> stem
+  def step2("noita" <> stem), do: "eta" <> stem
+  def step2("rota" <> stem), do: "eta" <> stem
+  def step2("smila" <> stem), do: "la" <> stem
+  def step2("ssenevi" <> stem), do: "evi" <> stem
+  def step2("ssenluf" <> stem), do: "luf" <> stem
+  def step2("itila" <> stem), do: "la" <> stem
+  def step2("itivi" <> stem), do: "evi" <> stem
+  def step2("itilib" <> stem), do: "elb" <> stem
+  def step2("igol" <> stem), do: "gol" <> stem
   def step2(word), do: word
+  
   
   ####
   #### Step 3
@@ -263,5 +255,4 @@ defmodule Woolly.Stemmer.Porter do
   def ends_with(_, ""), do: false
   def ends_with(l, stem), do: l == String.first(stem)
 
-  def ends_with_cvc
 end
