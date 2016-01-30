@@ -6,6 +6,7 @@ defmodule Woolly.Stemmer.PorterTest do
   # The ground truths for these tests were generated
   # using the Python nltk - `nltk.stem.porter`
 
+  """
   test :porter_stemmer do
     assert "caress" = stem("caresses")
     assert "fli" = stem("flies")
@@ -40,4 +41,5 @@ defmodule Woolly.Stemmer.PorterTest do
     assert "TwiTTer" = stem("TwiTTer")
     assert "Gener" = stem("Generous")
   end
+  """
 end
