@@ -13,19 +13,16 @@ defmodule Woolly.Stemmer.Restemmer do
   of a vanity feature than a production tool, used
   for experimentation and stemming using patterns.
 
-    iex> import Woolly.Stemmer.Restemmer
-    iex> stem("dogs", ~r/s$/)
-    "dog"
+      iex> import Woolly.Stemmer.Restemmer
+      iex> stem("dogs", ~r/s$/)
+      "dog"
 
-    iex> alias Woolly.Stemmer.Restemmer
-    iex> Restemmer.setm("cats", ~r/s$/, 5)
-    "cats"
-  
+      iex> alias Woolly.Stemmer.Restemmer
+      iex> Restemmer.stem("cats", ~r/s$/, 5)
+      "cats"
   """
 
   @doc ~S"""
-  stem/3
-
   The `Woolly.Stemmer.Restemmer.stem/3` takes three
   parameters listed below. It takes the word as the
   first parameter and takes a regular expression as
@@ -37,8 +34,8 @@ defmodule Woolly.Stemmer.Restemmer do
   ## Parameters
 
     - word (string) - a word to be stemmed
-    - pattern (Regex pattern) - The pattern
-    - minimum (Integer) - The minimum number of graphemes to work.
+    - pattern (regex pattern) - The pattern
+    - minimum (integer) - The minimum number of graphemes to work.
   """
   def stem(word, pattern, min) when is_binary(word) and is_number(min) do
     if String.length(word) >= min do
@@ -49,9 +46,7 @@ defmodule Woolly.Stemmer.Restemmer do
   end
 
   @doc ~S"""
-  stem/2
-  
-  The `Woolly.Stemmer.Restemmer.stem/3` takes three
+  The `Woolly.Stemmer.Restemmer.stem/2` takes three
   parameters listed below. It takes the word as the
   first parameter and takes a regular expression as
   the second. It also takes a `min` (shortened from
@@ -62,7 +57,7 @@ defmodule Woolly.Stemmer.Restemmer do
   # Parameters
 
     - word (String) - a word to be stemmed
-    - pattern - (Regular Expression) The Regular Expression
+    - pattern - (regular pattern) The Regular Expression
   """
   def stem(word, pattern) when is_binary(word) do
     Regex.replace(pattern, word, "") 

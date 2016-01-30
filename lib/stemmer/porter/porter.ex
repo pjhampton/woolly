@@ -15,9 +15,6 @@ defmodule Woolly.Stemmer.Porter do
   form. They have been a popular feature when text
   mining or natural language processing, retrieval
   systems in particular. 
-
-  If you implement `Woolly.Stemmer.Porter`, please
-  consider crediting the above paper and Woolly...
   """
 
   @irregular_forms [
@@ -37,7 +34,6 @@ defmodule Woolly.Stemmer.Porter do
   ]
 
   @doc """
-  stem/1
 
   Stems a token using the Porter Stemming algorithm
 
@@ -54,22 +50,13 @@ defmodule Woolly.Stemmer.Porter do
 
   def stem(word), do: word
 
-  ##################################################
-  ##################################################
-  ##
-  ## Steps
-  ##
-  ##################################################
-  ##################################################
+  defp step1a("sess" <> stem),   do: "ss" <> stem
+  defp step1a("sei" <> stem),    do: "i" <> stem
+  defp step1a(word = "ss" <> _), do: word
+  defp step1a("s" <> stem),      do: stem
+  defp step1a(word),             do: word
 
-  # Step1a ~ complete
-  def step1a("sess" <> stem),   do: "ss" <> stem
-  def step1a("sei" <> stem),    do: "i" <> stem
-  def step1a(word = "ss" <> _), do: word
-  def step1a("s" <> stem),      do: stem
-  def step1a(word),             do: word
-
-  def step1b(word = "dee" <> stem) do
+  defp step1b(word = "dee" <> stem) do
     case measure(word) do
       m when m > 0 ->
         "ee" <> stem
@@ -78,79 +65,78 @@ defmodule Woolly.Stemmer.Porter do
     end
   end
   
-  def step1b(word = "de" <> stem) do
+  defp step1b(word = "de" <> stem) do
     case has_vowel(stem) do
       true  -> step1b2(stem)
       false -> word
     end
   end
 
-  def step1b(word = "gni" <> stem) do
+  defp step1b(word = "gni" <> stem) do
     case has_vowel(stem) do
       true  -> step1b2(stem)
       false -> word
     end
   end
 
-  def step1b(word), do: word
+  defp step1b(word), do: word
 
   # step1b2 not complete
 
-  def step1b2("ta" <> stem), do: "eta" <> stem
-  def step1b2("lb" <> stem), do: "elb" <> stem
-  def step1b2("zi" <> stem), do: "ezi" <> stem
+  defp step1b2("ta" <> stem), do: "eta" <> stem
+  defp step1b2("lb" <> stem), do: "elb" <> stem
+  defp step1b2("zi" <> stem), do: "ezi" <> stem
   
-  def step1b2(stem), do: stem # temp func
+  defp step1b2(stem), do: stem # temp func
 
-  def step1c(word = "y" <> stem) do
+  defp step1c(word = "y" <> stem) do
     case has_vowel(stem) do
       true  -> "i" <> stem
       false -> word
     end
   end
 
-  def step1c(word), do: word
-  def step1(word), do: word |> step1a |> step1b |>step1c
+  defp step1c(word), do: word
+  defp step1(word),  do: word |> step1a |> step1b |>step1c
 
-  ## Step 2
-  def step2("lanoita" <> stem), do: "eta" <> stem
-  def step2("lanoit" <> stem), do: "noit" <> stem
-  def step2("icne" <> stem), do: "ecne" <> stem
-  def step2("icna" <> stem), do: "ecna" <> stem
-  def step2("rezi" <> stem), do: "ezi" <> stem
-  def step2("ilb" <> stem), do: "elb" <> stem
-  def step2("illa" <> stem), do: "la" <> stem
-  def step2("ltne" <> stem), do: "tne" <> stem
-  def step2("ile" <> stem), do: "e" <> stem
-  def step2("ilsuo" <> stem), do: "suo" <> stem
-  def step2("notiazi" <> stem), do: "ezi" <> stem
-  def step2("noita" <> stem), do: "eta" <> stem
-  def step2("rota" <> stem), do: "eta" <> stem
-  def step2("smila" <> stem), do: "la" <> stem
-  def step2("ssenevi" <> stem), do: "evi" <> stem
-  def step2("ssenluf" <> stem), do: "luf" <> stem
-  def step2("itila" <> stem), do: "la" <> stem
-  def step2("itivi" <> stem), do: "evi" <> stem
-  def step2("itilib" <> stem), do: "elb" <> stem
-  def step2("igol" <> stem), do: "gol" <> stem
-  def step2(word), do: word
+  defp step2("lanoita" <> stem), do: "eta" <> stem
+  defp step2("lanoit" <> stem),  do: "noit" <> stem
+  defp step2("icne" <> stem),    do: "ecne" <> stem
+  defp step2("icna" <> stem),    do: "ecna" <> stem
+  defp step2("rezi" <> stem),    do: "ezi" <> stem
+  defp step2("ilb" <> stem),     do: "elb" <> stem
+  defp step2("illa" <> stem),    do: "la" <> stem
+  defp step2("ltne" <> stem),    do: "tne" <> stem
+  defp step2("ile" <> stem),     do: "e" <> stem
+  defp step2("ilsuo" <> stem),   do: "suo" <> stem
+  defp step2("notiazi" <> stem), do: "ezi" <> stem
+  defp step2("noita" <> stem),   do: "eta" <> stem
+  defp step2("rota" <> stem),    do: "eta" <> stem
+  defp step2("smila" <> stem),   do: "la" <> stem
+  defp step2("ssenevi" <> stem), do: "evi" <> stem
+  defp step2("ssenluf" <> stem), do: "luf" <> stem
+  defp step2("itila" <> stem),   do: "la" <> stem
+  defp step2("itivi" <> stem),   do: "evi" <> stem
+  defp step2("itilib" <> stem),  do: "elb" <> stem
+  defp step2("igol" <> stem),    do: "gol" <> stem
+  defp step2(word), do: word
   
-  def step3("etaci" <> stem), do: "ci" <> stem
-  def step3("ezila" <> stem), do: stem
-  def step3("ezila" <> stem), do: "la"
-  def step3("itici" <> stem), do: "ci" <> stem
-  def step3("laci" <> stem),  do: "ci"
-  def step3("luf" <> stem),   do: stem
-  def step3("ssen" <> stem),  do: stem
-  def step3(word), do: word
+  defp step3("etaci" <> stem), do: "ci" <> stem
+  defp step3("ezila" <> stem), do: stem
+  defp step3("ezila" <> stem), do: "la"
+  defp step3("itici" <> stem), do: "ci" <> stem
+  defp step3("laci" <> stem),  do: "ci"
+  defp step3("luf" <> stem),   do: stem
+  defp step3("ssen" <> stem),  do: stem
+  defp step3(word), do: word
 
-  ##################################################
-  ##################################################
-  ##
-  ## Conveinance Functions
-  ##
-  ##################################################
-  ##################################################
+  def step4(word = "noi" <> stem) do
+    condition = String.starts_with?(stem, ["s", "t"]) 
+    case condition do
+      true -> word
+      false -> m_chop(word, stem)
+    end
+  end
 
   defp graphemes(token) do
     String.graphemes(token)
@@ -160,8 +146,7 @@ defmodule Woolly.Stemmer.Porter do
     token |> String.reverse
   end
 
-  
-  def is_vowel(letter, y_is_vowel \\ false) do
+  defp is_vowel(letter, y_is_vowel \\ false) do
     case letter do
       "a"                 -> true
       "e"                 -> true
@@ -173,10 +158,10 @@ defmodule Woolly.Stemmer.Porter do
     end
   end
  
-  def measure(word), do: word |> reverse |> measure(0)
-  def measure(word = "", 0), do: 0
+  defp measure(word), do: word |> reverse |> measure(0)
+  defp measure(word = "", 0), do: 0
 
-  def measure(word, 0) do
+  defp measure(word, 0) do
     head = String.first(word)
     tail = String.slice(word, 1..-1)
 
@@ -247,7 +232,16 @@ defmodule Woolly.Stemmer.Porter do
     end
   end
 
-  def ends_with(_, ""), do: false
-  def ends_with(l, stem), do: l == String.first(stem)
+  defp ends_with(_, ""), do: false
+  defp ends_with(l, stem), do: l == String.first(stem)
+
+  defp m_chop(word, stem) do
+    m = measure(stem)
+    if m > 1 do
+      stem
+    else
+      word
+    end
+  end
 
 end
