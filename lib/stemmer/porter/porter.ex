@@ -113,7 +113,7 @@ defmodule Woolly.Stemmer.Porter do
   def step1(word), do: word |> step1a |> step1b |>step1c
 
   ## Step 2
-  def step2("lanoita" <> stem), do "eta" <> stem
+  def step2("lanoita" <> stem), do: "eta" <> stem
   def step2("lanoit" <> stem), do: "noit" <> stem
   def step2("icne" <> stem), do: "ecne" <> stem
   def step2("icna" <> stem), do: "ecna" <> stem
@@ -135,18 +135,13 @@ defmodule Woolly.Stemmer.Porter do
   def step2("igol" <> stem), do: "gol" <> stem
   def step2(word), do: word
   
-  
-  ####
-  #### Step 3
-  ####
-  #### etaci -> ci
-  #### evita -> ""
-  #### ezila -> la
-  #### itici -> ci
-  #### laci -> ci
-  #### luf -> ""
-  #### ssen -> ""
-
+  def step3("etaci" <> stem), do: "ci" <> stem
+  def step3("ezila" <> stem), do: stem
+  def step3("ezila" <> stem), do: "la"
+  def step3("itici" <> stem), do: "ci" <> stem
+  def step3("laci" <> stem),  do: "ci"
+  def step3("luf" <> stem),   do: stem
+  def step3("ssen" <> stem),  do: stem
   def step3(word), do: word
 
   ##################################################
