@@ -31,15 +31,6 @@ end
 
 ...and don't forget to run `mix deps.get` from the terminal to fetch and compile your workspace dependencies.
 
-## Important Information
-
-  - [Code of Conduct](http://github.com/pjhampton/Woolly/blob/master/info/CODE_OF_CONDUCT.md)
-  - [Contributing](http://github.com/pjhampton/Woolly/blob/master/info/CONTRIBUTING.md)
-  - ~~Documentation~~
-  - [FAQs](http://github.com/pjhampton/Woolly/blob/master/info/FAQs.md)
-  - [License](http://github.com/pjhampton/Woolly/blob/master/info/LICENSE.md)
-  - [Thanks](http://github.com/pjhampton/Woolly/blob/master/info/THANKS.md)
-
 ## Copyright & License
 
 Copyright (c) 2016, PJ Hampton.
