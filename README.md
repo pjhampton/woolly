@@ -3,6 +3,8 @@
 > ### Woolly ~ The Text Mining Elixir.
 > Woolly is a Text Mining & Natural Language Processing API for the Elixir programming language. 
 
+- Disclaimer: This is very early work and while some features work, others don't.
+
 ## Getting started
 
 Woolly is [available in Hex](https://hex.pm/), install it by adding it to your project `mix.exs` file as so:
