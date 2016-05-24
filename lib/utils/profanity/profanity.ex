@@ -46,9 +46,9 @@ defmodule Woolly.Utils.Profanity do
   end
 
   defp fetch_profanity(lang) do
-    folder_path = "resources/corpora/profanity/"
+    folder_path = Application.app_dir(:woolly, "priv/corpora/profanity") 
     file_path = Atom.to_string(lang) <> ".profanity"
-    path = folder_path <> file_path
+    path = Path.absname(file_path, folder_path) 
     {:ok, profanity} = File.read(path)
     Regex.split(~r/\n/, profanity)
   end
