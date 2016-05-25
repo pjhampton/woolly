@@ -1,7 +1,7 @@
 defmodule Woolly.Mixfile do
   use Mix.Project
 
-  @version "0.1.0"
+  @version "0.1.1"
   @description """
     Woolly is the text mining and natural language toolkit for the Elixir programming language.
   """
@@ -44,7 +44,7 @@ defmodule Woolly.Mixfile do
       maintainers: ["PJ Hampton"],
       licenses: ["MIT"],
       links: %{github: "https://github.com/pjhampton/Woolly"},
-      files: ~w( lib resources test mix.exs README.md )
+      files: ~w( lib priv test mix.exs README.md )
     ] 
   end
 end
