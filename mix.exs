@@ -1,7 +1,7 @@
 defmodule Woolly.Mixfile do
   use Mix.Project
 
-  @version "0.1.1"
+  @version "0.1.2"
   @description """
     Woolly is the text mining and natural language toolkit for the Elixir programming language.
   """
@@ -27,8 +27,9 @@ defmodule Woolly.Mixfile do
 
   defp deps do
     [
-      {:earmark, "~> 0.1", only: :dev},
-      {:ex_doc, "~> 0.11", only: :dev}
+      {:earmark, "~> 0.1", only: :dev },
+      {:ex_doc, "~> 0.11", only: :dev },
+      {:inch_ex,           only: :docs}
     ]
   end
 
