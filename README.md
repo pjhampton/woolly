@@ -1,9 +1,13 @@
 # Woolly
 
+![hex version](https://img.shields.io/hexpm/v/woolly.svg)
+![hex licence](https://img.shields.io/hexpm/l/woolly.svg)
+![hex downloads](https://img.shields.io/hexpm/dt/woolly.svg)
+
 > ### Woolly ~ The Text Mining Elixir.
 > Woolly is a Text Mining & Natural Language Processing API for the Elixir programming language. 
 
-- Disclaimer: This is very early work and while some features work, others don't.
+- Disclaimer: This is very early work and while some features work, others don't. Get involved!
 
 ## Getting started
 
@@ -22,15 +26,6 @@ def deps do
   [{:woolly, github: "pjhampton/Woolly"}]
 end
 ```
-
-Make sure to start Woolly before your application as so: 
-
-```elixir
-def application do
-  [applications: [:logger, :woolly]]
-end
-```
-
 ...and don't forget to run `mix deps.get` from the terminal to fetch and compile your workspace dependencies.
 
 ## Copyright & License
