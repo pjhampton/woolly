@@ -29,7 +29,7 @@ defmodule Woolly.Mixfile do
     [
       {:earmark, "~> 0.1", only: :dev },
       {:ex_doc, "~> 0.11", only: :dev },
-      {:inch_ex,           only: :docs}
+      {:inch_ex,           only: [:docs, :test]}
     ]
   end
 
