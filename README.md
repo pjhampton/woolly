@@ -5,8 +5,6 @@
 ![hex downloads](https://img.shields.io/hexpm/dt/woolly.svg)
 [![Deps Status](https://beta.hexfaktor.org/badge/all/github/pjhampton/Woolly.svg)](https://beta.hexfaktor.org/github/pjhampton/Woolly)
 [![Inline docs](https://inch-ci.org/github/pjhampton/woolly.svg?branch=master)](https://inch-ci.org/github/pjhampton/woolly)
-[![coverage Status](https://coveralls.io/repos/github/pjhampton/Woolly/badge.svg?branch=master)](https://coveralls.io/github/pjhampton/Woolly?branch=master)
-
 
 > ### Woolly ~ The Text Mining Elixir.
 > Woolly is a Text Mining & Natural Language Processing API for the Elixir programming language. 
