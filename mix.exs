@@ -17,7 +17,14 @@ defmodule Woolly.Mixfile do
       start_permanent: Mix.env == :prod,
       docs: docs,
       deps: deps,
-      package: package
+      package: package,
+      test_coverage: [tool: ExCoveralls],
+      preferred_cli_env: [
+        "coveralls": :test,
+        "coveralls.detail": :test, 
+        "coveralls.post": :test,
+        "coveralls.html": :test
+      ]
     ]
   end
 
@@ -27,9 +34,10 @@ defmodule Woolly.Mixfile do
 
   defp deps do
     [
-      {:earmark, "~> 0.1", only: :dev },
-      {:ex_doc, "~> 0.11", only: :dev },
-      {:inch_ex,           only: [:docs, :test]}
+      {:earmark,     "~> 0.1",   only: :dev },
+      {:ex_doc,      "~> 0.11",  only: :dev },
+      {:excoveralls, "~> 0.5",   only: :test},
+      {:inch_ex,     "~> 0.5",   only: [:docs, :test]}
     ]
   end
 
