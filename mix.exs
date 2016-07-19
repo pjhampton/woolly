@@ -19,13 +19,15 @@ defmodule Woolly.Mixfile do
       deps: deps,
       package: package,
       test_coverage: [tool: ExCoveralls],
-      preferred_cli_env: [
-        "coveralls": :test,
-        "coveralls.detail": :test, 
-        "coveralls.post": :test,
-        "coveralls.html": :test
-      ]
+      preferred_cli_env: cli_env_for(:test, [
+        "coveralls", "coveralls.detail", "coveralls.post",
+        "vcr", "vcr.delete", "vcr.check", "vcr.show"
+      ]),
     ]
+  end
+
+  defp cli_env_for(env, tasks) do
+    Enum.reduce(tasks, [], fn(key, acc) -> Keyword.put(acc, :"#{key}", env) end)
   end
 
   def application do
