@@ -1,6 +1,6 @@
 # Woolly
 
-![hex version](https://img.shields.io/hexpm/v/woolly.svg)
+[![hex version](https://img.shields.io/hexpm/v/woolly.svg)](https://hex.pm/packages/woolly)
 ![hex licence](https://img.shields.io/hexpm/l/woolly.svg)
 ![hex downloads](https://img.shields.io/hexpm/dt/woolly.svg)
 [![Deps Status](https://beta.hexfaktor.org/badge/all/github/pjhampton/Woolly.svg)](https://beta.hexfaktor.org/github/pjhampton/Woolly)
